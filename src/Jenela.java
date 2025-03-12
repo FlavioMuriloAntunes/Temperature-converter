@@ -59,43 +59,105 @@ public class Jenela extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtC = new javax.swing.JTextField();
+        txtF = new javax.swing.JTextField();
+        txtK = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(500, 250));
-        setPreferredSize(new java.awt.Dimension(500, 250));
+        setTitle("Convert");
+        setMinimumSize(new java.awt.Dimension(100, 300));
+        setPreferredSize(new java.awt.Dimension(450, 200));
         setResizable(false);
         getContentPane().setLayout(null);
 
         txtData.setForeground(new java.awt.Color(204, 204, 0));
         txtData.setText("Data");
         getContentPane().add(txtData);
-        txtData.setBounds(150, 10, 81, 16);
+        txtData.setBounds(200, 240, 80, 16);
 
         txtHora.setBackground(new java.awt.Color(255, 0, 0));
         txtHora.setForeground(new java.awt.Color(255, 204, 0));
-        txtHora.setText("jLabel1");
         getContentPane().add(txtHora);
-        txtHora.setBounds(270, 10, 70, 20);
+        txtHora.setBounds(330, 240, 70, 20);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("C > F > K");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
-        jButton1.setBounds(310, 80, 75, 22);
+        jButton1.setBounds(200, 60, 90, 22);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("F > C > K");
         getContentPane().add(jButton2);
-        jButton2.setBounds(310, 130, 75, 22);
+        jButton2.setBounds(200, 110, 90, 22);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("K > F > C");
         getContentPane().add(jButton3);
-        jButton3.setBounds(310, 180, 75, 22);
+        jButton3.setBounds(200, 160, 90, 22);
+        getContentPane().add(txtC);
+        txtC.setBounds(90, 60, 64, 22);
+        getContentPane().add(txtF);
+        txtF.setBounds(90, 110, 64, 22);
+        getContentPane().add(txtK);
+        txtK.setBounds(90, 160, 64, 22);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Background 6.png"))); // NOI18N
+        jLabel2.setText("CONVERSOR DE TEMPERATURA");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(100, 10, 230, 16);
+
+        jLabel1.setText("C º");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 530, 320);
+        jLabel1.setBounds(40, 60, 30, 16);
+
+        jLabel3.setText("F º");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(40, 110, 14, 16);
+
+        jLabel4.setText("K º");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(40, 160, 37, 16);
+
+        jLabel5.setText("Hora:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(280, 240, 40, 16);
+
+        jLabel6.setText("Data:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(160, 240, 37, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        double valor = Double.parseDouble(txtC.getText());
+        
+        
+        Double valorF = (valor*9/5) + 32;  // declaramos a variavel DOuble como maiuscula para poder converte lá depois
+        
+        txtF.setText(valorF.toString()); // conversao de double para string e mostra na tela
+        
+        // para kelvin
+        Double valorK = valor + 273.15;
+        
+        txtK.setText(valorK.toString());
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,7 +199,15 @@ public class Jenela extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField txtC;
     private javax.swing.JLabel txtData;
+    private javax.swing.JTextField txtF;
     private javax.swing.JLabel txtHora;
+    private javax.swing.JTextField txtK;
     // End of variables declaration//GEN-END:variables
 }

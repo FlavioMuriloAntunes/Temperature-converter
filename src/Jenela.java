@@ -68,6 +68,7 @@ public class Jenela extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Convert");
@@ -96,14 +97,24 @@ public class Jenela extends javax.swing.JFrame {
         jButton1.setBounds(200, 60, 90, 22);
 
         jButton2.setText("F > C > K");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(200, 110, 90, 22);
 
         jButton3.setText("K > F > C");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
         jButton3.setBounds(200, 160, 90, 22);
         getContentPane().add(txtC);
-        txtC.setBounds(90, 60, 64, 22);
+        txtC.setBounds(90, 60, 70, 22);
         getContentPane().add(txtF);
         txtF.setBounds(90, 110, 64, 22);
         getContentPane().add(txtK);
@@ -133,6 +144,15 @@ public class Jenela extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(160, 240, 37, 16);
 
+        jButton4.setText("LIMPAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(140, 200, 90, 22);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -157,7 +177,60 @@ public class Jenela extends javax.swing.JFrame {
         
         
         
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        double valor = Double.parseDouble(txtF.getText());
+        
+        // de F para C
+        Double result = (5.0 /9.0) * (valor - 32);
+        
+        result = Math.round(result *100.0)/ 100.0; // arredonda para 2 casas decimais
+        
+        txtC.setText(result.toString());
+        
+        
+        // F para F
+        Double result2 = (5.0/9.0) * (valor -32) + 273.15;
+        
+        result2 = Math.round(result2 *100.0)/100.0;
+        
+        txtK.setText(result2.toString());
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        // K para C
+        double valorK = Double.parseDouble(txtK.getText());
+        
+        Double resultC =  valorK -273.15;
+                
+        resultC = Math.round(resultC * 100.0)/100.0;  
+        
+        txtC.setText(resultC.toString());
+        
+        // K para F
+       Double resultF =  (valorK - 273.15)* (9.0/5.0) + 32 ;
+       
+       resultF = Math.round(resultF *100.0)/100.0;
+       
+       txtF.setText(resultF.toString());
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        // limpa os dados do teclado
+        txtC.setText("");
+        txtF.setText("");
+        txtK.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +271,7 @@ public class Jenela extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
